@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0536wkmjuomo"]
+
+[ext_resource type="SpriteFrames" uid="uid://bo8f32qb8ssxn" path="res://assets/cards.tres" id="1_3frkl"]
+[ext_resource type="Script" uid="uid://bndjd5s5eq212" path="res://scripts/blackjack.gd" id="1_kvb06"]
+[ext_resource type="PackedScene" uid="uid://sfhxe0sqyyyt" path="res://scenes/card.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://e5t2nikpdpqo" path="res://assets/baize.jpg" id="2_kvb06"]
+
+[node name="Blackjack" type="Node2D" unique_id=141057692]
+script = ExtResource("1_kvb06")
+card = ExtResource("1_o5qli")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=657963703]
+rotation = 1.5707964
+scale = Vector2(0.4000323, 0.4501284)
+texture = ExtResource("2_kvb06")
+centered = false
+offset = Vector2(0, -2400)
+
+[node name="CardSpawn" type="AnimatedSprite2D" parent="." unique_id=2093521832]
+position = Vector2(954, 332)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("1_3frkl")
+frame = 52
+
+[node name="dealer_hand" type="Node2D" parent="." unique_id=94203200]

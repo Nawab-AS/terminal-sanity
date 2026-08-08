@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://sfhxe0sqyyyt"]
+
+[ext_resource type="SpriteFrames" uid="uid://bo8f32qb8ssxn" path="res://assets/cards.tres" id="1_3frkl"]
+[ext_resource type="Script" uid="uid://cmo6v84dstvjf" path="res://scripts/card.gd" id="1_kvb06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvb06"]
+size = Vector2(46, 62)
+
+[node name="Card" type="Node2D" unique_id=1661524160]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_kvb06")
+
+[node name="hoverScale" type="Node2D" parent="." unique_id=827088018]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="image" type="AnimatedSprite2D" parent="hoverScale" unique_id=937876922]
+texture_filter = 1
+scale = Vector2(1.0000001, 1.0000001)
+sprite_frames = ExtResource("1_3frkl")
+
+[node name="Area2D" type="Area2D" parent="hoverScale" unique_id=1450962189]
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hoverScale/Area2D" unique_id=1281611628]
+shape = SubResource("RectangleShape2D_kvb06")
+
+[connection signal="input_event" from="hoverScale/Area2D" to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="hoverScale/Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="hoverScale/Area2D" to="." method="_on_mouse_exited"]
