@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://bndjd5s5eq212" path="res://scripts/blackjack.gd" id="1_kvb06"]
 [ext_resource type="PackedScene" uid="uid://sfhxe0sqyyyt" path="res://scenes/card.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://e5t2nikpdpqo" path="res://assets/baize.jpg" id="2_kvb06"]
+[ext_resource type="Script" uid="uid://tyj8xre818ve" path="res://scenes/card_spawn.gd" id="5_f2nv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vy1w"]
+size = Vector2(45.600006, 60.800007)
 
 [node name="Blackjack" type="Node2D" unique_id=141057692]
 script = ExtResource("1_kvb06")
@@ -11,15 +15,45 @@ card = ExtResource("1_o5qli")
 
 [node name="bg" type="Sprite2D" parent="." unique_id=657963703]
 rotation = 1.5707964
-scale = Vector2(0.4000323, 0.4501284)
+scale = Vector2(0.4000323, 0.4533925)
 texture = ExtResource("2_kvb06")
 centered = false
 offset = Vector2(0, -2400)
 
 [node name="CardSpawn" type="AnimatedSprite2D" parent="." unique_id=2093521832]
+texture_filter = 1
 position = Vector2(954, 332)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_3frkl")
 frame = 52
+script = ExtResource("5_f2nv2")
+
+[node name="Area2D" type="Area2D" parent="CardSpawn" unique_id=1691174832]
+
+[node name="Collision" type="CollisionShape2D" parent="CardSpawn/Area2D" unique_id=1287777994]
+position = Vector2(0, -0.3999939)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_8vy1w")
 
 [node name="dealer_hand" type="Node2D" parent="." unique_id=94203200]
+position = Vector2(540, 100)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="new_card_pos" type="Node2D" parent="dealer_hand" unique_id=373880961]
+position = Vector2(125, 0)
+
+[node name="player_hand" type="Node2D" parent="." unique_id=609011554]
+position = Vector2(540, 619.99994)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="new_card_pos" type="Node2D" parent="player_hand" unique_id=214084052]
+position = Vector2(125, 0)
+
+[node name="player_total" type="Label" parent="." unique_id=1360987706]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="deal_card" from="CardSpawn" to="." method="_deal_card_signal"]
+[connection signal="input_event" from="CardSpawn/Area2D" to="CardSpawn" method="_on_input_event"]
+[connection signal="mouse_entered" from="CardSpawn/Area2D" to="CardSpawn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CardSpawn/Area2D" to="CardSpawn" method="_on_mouse_exited"]

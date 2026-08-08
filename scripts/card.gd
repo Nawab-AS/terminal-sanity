@@ -6,7 +6,7 @@ enum Values {ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, 
 @export var suite: Suites
 @export var value: Values
 @export var flipped: bool = true
-@export var ClickFlipable: bool = true
+@export var ClickFlipable: bool = false
 @export var flippingTime: float = 0.20
 
 
@@ -15,6 +15,21 @@ var mouseInside: bool = false
 var cardScale: float = 1
 
 func _ready():
+	updateCardImage()
+	
+func randomizeCard():
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+
+	var suites := [Suites.HEARTS, Suites.DIAMONDS, Suites.SPADES, Suites.CLUBS]
+	var values := [
+		Values.ACE, Values.TWO, Values.THREE, Values.FOUR, Values.FIVE, Values.SIX,
+		Values.SEVEN, Values.EIGHT, Values.NINE, Values.JACK, Values.QUEEN, Values.KING
+	]
+
+	suite = suites[rng.randi_range(0, suites.size() - 1)]
+	value = values[rng.randi_range(0, values.size() - 1)]
+
 	updateCardImage()
 
 func flip():
@@ -77,21 +92,29 @@ func getCard(suite: Suites, value: Values) -> int:
 	return (suiteInt * 13) + valueInt - 1
 
 
-var hover_tween
-func _on_mouse_exited():
-	if hover_tween: hover_tween.kill()
-	hover_tween = create_tween()
-	hover_tween.tween_property($hoverScale, "scale", Vector2.ONE, flippingTime/2)
-
-func _on_mouse_entered():
-	if hover_tween: hover_tween.kill()
-	hover_tween = create_tween()
-	hover_tween.tween_property($hoverScale, "scale", Vector2(1.05, 1.05), flippingTime/2)
-
-func _on_input_event(viewport, event, shape_idx):
-	# mouse clicked and currently not flipping
-	if event is InputEventMouseButton && event.pressed \
-			&& event.button_index == MOUSE_BUTTON_LEFT \
-			&& !flipping && ClickFlipable:
-		if hover_tween: hover_tween.kill()
-		flip()
+func get_value():
+	match value:
+		Values.ACE:
+			return 1
+		Values.TWO:
+			return 2
+		Values.THREE:
+			return 3
+		Values.FOUR:
+			return 4
+		Values.FIVE:
+			return 5
+		Values.SIX:
+			return 6
+		Values.SEVEN:
+			return 7
+		Values.EIGHT:
+			return 8
+		Values.NINE:
+			return 9
+		Values.JACK:
+			return 10
+		Values.QUEEN:
+			return 10
+		Values.KING:
+			return 10
