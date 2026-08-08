@@ -2,6 +2,18 @@ extends Node2D
 
 @export var card: PackedScene
 var tween: Tween
+var dealable: bool = false
+var player_total: int = 0
+var dealer_total: int = 0
+
+func set_player_total(value: int) -> void:
+	player_total = value
+	$player_total.text = "Points: %d" % player_total
+
+
+func set_dealer_total(value: int) -> void:
+	dealer_total = value
+	$dealer_total.text = "Points: %d" % dealer_total
 
 func _ready():
 	tween = create_tween()
@@ -13,9 +25,11 @@ func _ready():
 
 	tween.tween_callback(func():
 		deal_card(false, true)
+		dealable = true
 	)
 
 func _deal_card_signal():
+	if !dealable: return
 	deal_card(false, true, true)
 
 
@@ -25,6 +39,10 @@ func deal_card(to_dealer: bool, flip: bool, from_signal: bool = false):
 	var new_card = card.instantiate()
 	hand.add_child(new_card)
 	new_card.randomizeCard()
+	if to_dealer:
+		set_dealer_total(dealer_total + new_card.get_value())
+	else:
+		set_player_total(player_total + new_card.get_value())
 	new_card.global_position = $CardSpawn.global_position
 
 	var spacing := 125.0

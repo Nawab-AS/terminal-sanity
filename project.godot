@@ -15,6 +15,10 @@ run/main_scene="uid://0536wkmjuomo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MCPRuntime="*uid://co61muxqp1n4t"
+
 [display]
 
 window/size/viewport_width=1080
@@ -24,7 +28,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
 [physics]
 

@@ -25,7 +25,6 @@ texture_filter = 1
 position = Vector2(954, 332)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_3frkl")
-frame = 52
 script = ExtResource("5_f2nv2")
 
 [node name="Area2D" type="Area2D" parent="CardSpawn" unique_id=1691174832]
@@ -50,8 +49,22 @@ scale = Vector2(0.9999999, 0.9999999)
 position = Vector2(125, 0)
 
 [node name="player_total" type="Label" parent="." unique_id=1360987706]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 459.0
+offset_top = 485.0
+offset_right = 622.0
+offset_bottom = 527.0
+theme_override_font_sizes/font_size = 30
+text = "Points: 0"
+horizontal_alignment = 1
+
+[node name="dealer_total" type="Label" parent="." unique_id=1415984209]
+offset_left = 459.0
+offset_top = 183.0
+offset_right = 622.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 30
+text = "Points: 0"
+horizontal_alignment = 1
 
 [connection signal="deal_card" from="CardSpawn" to="." method="_deal_card_signal"]
 [connection signal="input_event" from="CardSpawn/Area2D" to="CardSpawn" method="_on_input_event"]
