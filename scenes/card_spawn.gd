@@ -3,6 +3,7 @@ extends AnimatedSprite2D
 @export var hoverTime: float = 0.2
 
 signal deal_card
+signal stand
 
 var hover_tween
 func _on_mouse_exited():
@@ -18,4 +19,13 @@ func _on_mouse_entered():
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
+		if name == "Hit":
+			emit_signal("deal_card")
+		elif name == "Stand":
+			emit_signal("stand")
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("Hit") && name == "Hit":
 		emit_signal("deal_card")
+	elif event.is_action_pressed("Stand") && name == "Stand":
+		emit_signal("stand")

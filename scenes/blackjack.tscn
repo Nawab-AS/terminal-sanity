@@ -20,19 +20,65 @@ texture = ExtResource("2_kvb06")
 centered = false
 offset = Vector2(0, -2400)
 
-[node name="CardSpawn" type="AnimatedSprite2D" parent="." unique_id=2093521832]
+[node name="Hit" type="AnimatedSprite2D" parent="." unique_id=2093521832]
 texture_filter = 1
 position = Vector2(954, 332)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_3frkl")
+frame = 52
 script = ExtResource("5_f2nv2")
 
-[node name="Area2D" type="Area2D" parent="CardSpawn" unique_id=1691174832]
+[node name="Area2D" type="Area2D" parent="Hit" unique_id=1691174832]
 
-[node name="Collision" type="CollisionShape2D" parent="CardSpawn/Area2D" unique_id=1287777994]
+[node name="Collision" type="CollisionShape2D" parent="Hit/Area2D" unique_id=1287777994]
 position = Vector2(0, -0.3999939)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_8vy1w")
+
+[node name="Label" type="Label" parent="Hit" unique_id=1551630162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -32.0
+offset_right = -24.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Hit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stand" type="AnimatedSprite2D" parent="." unique_id=987654321]
+texture_filter = 1
+position = Vector2(150, 332)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("1_3frkl")
+frame = 53
+script = ExtResource("5_f2nv2")
+
+[node name="Area2D" type="Area2D" parent="Stand" unique_id=987654322]
+
+[node name="Collision" type="CollisionShape2D" parent="Stand/Area2D" unique_id=987654323]
+position = Vector2(0, -0.3999939)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_8vy1w")
+
+[node name="Label" type="Label" parent="Stand" unique_id=2032713566]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -32.0
+offset_right = -24.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Stand"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="dealer_hand" type="Node2D" parent="." unique_id=94203200]
 position = Vector2(540, 100)
@@ -58,6 +104,7 @@ text = "Points: 0"
 horizontal_alignment = 1
 
 [node name="dealer_total" type="Label" parent="." unique_id=1415984209]
+visible = false
 offset_left = 459.0
 offset_top = 183.0
 offset_right = 622.0
@@ -66,7 +113,28 @@ theme_override_font_sizes/font_size = 30
 text = "Points: 0"
 horizontal_alignment = 1
 
-[connection signal="deal_card" from="CardSpawn" to="." method="_deal_card_signal"]
-[connection signal="input_event" from="CardSpawn/Area2D" to="CardSpawn" method="_on_input_event"]
-[connection signal="mouse_entered" from="CardSpawn/Area2D" to="CardSpawn" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CardSpawn/Area2D" to="CardSpawn" method="_on_mouse_exited"]
+[node name="ending" type="Label" parent="." unique_id=754334084]
+visible = false
+custom_minimum_size = Vector2(1080, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1080.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 150
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="deal_card" from="Hit" to="." method="_deal_card_signal"]
+[connection signal="input_event" from="Hit/Area2D" to="Hit" method="_on_input_event"]
+[connection signal="mouse_entered" from="Hit/Area2D" to="Hit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Hit/Area2D" to="Hit" method="_on_mouse_exited"]
+[connection signal="deal_card" from="Stand" to="." method="_stand_signal"]
+[connection signal="stand" from="Stand" to="." method="_stand"]
+[connection signal="input_event" from="Stand/Area2D" to="Stand" method="_on_input_event"]
+[connection signal="mouse_entered" from="Stand/Area2D" to="Stand" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Stand/Area2D" to="Stand" method="_on_mouse_exited"]
