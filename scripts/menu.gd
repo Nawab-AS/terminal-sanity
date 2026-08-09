@@ -11,6 +11,7 @@ func _ready() -> void:
 	GlobalSignals.move_camera.connect(func(y: int, delay: float, middle_callback: Callable):
 		await transition(Color.BLACK, 0.25, delay, func():
 			if y == 9:
+				cutscene_camera.show()
 				cutscene_camera.enabled = true
 				cutscene_camera.make_current()
 			else:
