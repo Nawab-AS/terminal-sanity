@@ -32,8 +32,9 @@ func _on_question_pressed(button: Button) -> void:
             _show_question(next_question)
         )
     else:
-        GlobalSignals.move_camera.emit(9, 0.1, Callable())
-        #GlobalSignals.blackjack_start.emit(attribute.replace("_", " "), 20)
+        GlobalSignals.move_camera.emit(9, 0.1, func():
+            GlobalSignals.start_run(attribute, software_hardware, transport)
+        )
 
 
 func _show_question(index: int) -> void:

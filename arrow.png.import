@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://driy0mtjvg24v"
-path="res://.godot/imported/CorridorR6-R17.png-ca56f22e7d53edef5f5df5215011f9aa.ctex"
+uid="uid://baqety0upohne"
+path="res://.godot/imported/arrow.png-9a52328c9c8f79a188b7fabb13b1f3fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CorridorR6-R17.png"
-dest_files=["res://.godot/imported/CorridorR6-R17.png-ca56f22e7d53edef5f5df5215011f9aa.ctex"]
+source_file="res://arrow.png"
+dest_files=["res://.godot/imported/arrow.png-9a52328c9c8f79a188b7fabb13b1f3fc.ctex"]
 
 [params]
 

@@ -8,6 +8,8 @@ var dealer_total: int = 0
 var attribute: String
 var total: int
 var wager: int = 0
+var wager_locked: bool = false
+var resolved_winner: Winner = Winner.DRAW
 signal ended(winner: String)
 enum Winner {PLAYER, DEALER, DRAW}
 
@@ -37,10 +39,11 @@ func _ready() -> void:
 	GlobalSignals.blackjack_start.connect(_on_blackjack_start)
 
 
-func _on_blackjack_start(attribute2: String, total2: int) -> void:
+func _on_blackjack_start(attribute2: String, total2: int, wager2: int, locked_wager: bool) -> void:
 	attribute = attribute2.replace("_", " ").capitalize()
 	total = total2
-	wager = 1
+	wager = clampi(wager2, 1, total)
+	wager_locked = locked_wager
 	_refresh_wager_label()
 	GlobalSignals.move_camera.emit(2, 0.25, Callable())
 	await $wager/start.pressed
@@ -60,8 +63,8 @@ func _refresh_wager_label() -> void:
 	if not attribute.is_empty():
 		attribute_suffix = " %s" % attribute
 	$wager/Label.text = "Wager: %d/%d %s" % [wager, total, attribute_suffix]
-	$wager/more.disabled = wager >= total
-	$wager/less.disabled = wager <= 1
+	$wager/more.disabled = wager_locked or wager >= total
+	$wager/less.disabled = wager_locked or wager <= 1
 	$wager/start.disabled = wager <= 0 or wager > total
 
 
@@ -119,6 +122,7 @@ func reset(deal: bool):
 		action_tween.tween_property($Stand, "position:x", -100.0, 0.35)
 		await action_tween.finished
 		$wager.hide()
+		GlobalSignals.blackjack_finished.emit(resolved_winner, wager)
 		GlobalSignals.blackjack_done.emit()
 		return
 
@@ -207,6 +211,7 @@ func deal_card(to_dealer: bool, flip: bool):
 
 func ending(text: String, winner: Winner):
 	dealable = false
+	resolved_winner = winner
 	match winner:
 		Winner.PLAYER:
 			total += wager * 2

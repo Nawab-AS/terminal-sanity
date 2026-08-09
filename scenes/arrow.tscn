@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://col2nywgespeg"]
 
-[ext_resource type="Texture2D" uid="uid://jopfync10l75" path="res://assets/icon.svg" id="1_23jat"]
+[ext_resource type="Texture2D" uid="uid://baqety0upohne" path="res://arrow.png" id="1_23jat"]
 [ext_resource type="Script" uid="uid://bunuadmhp7ldq" path="res://scripts/arrow.gd" id="2_q8ifc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vy1w"]
-size = Vector2(116, 116)
+size = Vector2(446.66666, 116)
 
 [node name="Arrow" type="Sprite2D" unique_id=1904409214]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_23jat")
 script = ExtResource("2_q8ifc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=828182174]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1414402090]
-position = Vector2(0, -1)
+position = Vector2(0, 13.333334)
 shape = SubResource("RectangleShape2D_8vy1w")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]

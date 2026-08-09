@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://t2nloxi5ovgb"]
 
 [ext_resource type="Script" uid="uid://gkuoa5ievlih" path="res://scripts/menu.gd" id="1_yqeox"]
-[ext_resource type="Texture2D" uid="uid://jopfync10l75" path="res://assets/icon.svg" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://btmeygwoc644p" path="res://Mii-updated.png" id="2_4ytvr"]
 [ext_resource type="PackedScene" uid="uid://0536wkmjuomo" path="res://scenes/blackjack.tscn" id="3_con2f"]
 [ext_resource type="PackedScene" uid="uid://8hfpcfg54hic" path="res://scenes/who_are_you.tscn" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://m1wxaakr8r3y" path="res://scenes/cutscenes.tscn" id="5_4ytvr"]
@@ -40,9 +40,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
 text = "Play"
 
 [node name="bg_image" type="Sprite2D" parent="." unique_id=982056717]
-position = Vector2(880, 387.00003)
-scale = Vector2(3.8398438, 5.578125)
-texture = ExtResource("2_vjb58")
+position = Vector2(880, 319.00006)
+scale = Vector2(2.7261646, 1.893077)
+texture = ExtResource("2_4ytvr")
 
 [node name="Blackjack" parent="." unique_id=141057692 instance=ExtResource("3_con2f")]
 position = Vector2(0, 2000)

@@ -21,6 +21,7 @@ offset_left = -2830.0
 offset_top = -1298.0
 offset_right = 2176.0
 offset_bottom = 2717.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="map" type="Node2D" parent="." unique_id=2134799186]
@@ -103,11 +104,6 @@ direction = 3
 [node name="HallwayR17R7" type="Sprite2D" parent="map" unique_id=936027339]
 position = Vector2(-456.79, 1347.19)
 texture = ExtResource("5_pfeoa")
-
-[node name="Arrow6" parent="map/HallwayR17R7" unique_id=1070222234 instance=ExtResource("3_dmv5i")]
-position = Vector2(188.79001, 10.810059)
-rotation = -1.5707964
-direction = 3
 
 [node name="Arrow7" parent="map/HallwayR17R7" unique_id=604913243 instance=ExtResource("3_dmv5i")]
 position = Vector2(-189.20999, 9.810059)

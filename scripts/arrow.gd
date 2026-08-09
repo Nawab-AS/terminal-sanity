@@ -6,14 +6,12 @@ enum Direction {UP, DOWN, LEFT, RIGHT}
 
 
 func _ready() -> void:
-	$Area2D.input_pickable = false
+	$Area2D.input_pickable = true
 
 
-func _input(event: InputEvent) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var local_mouse_position := to_local(get_global_mouse_position())
-		if get_rect().has_point(local_mouse_position):
-				GlobalSignals.map_move.emit(_movement.x, _movement.y)
+		GlobalSignals.map_move.emit(_movement.x, _movement.y)
 
 
 var _movement: Vector2i:

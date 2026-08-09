@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg7yygvt183h6"
-path="res://.godot/imported/Elevator-Middle.png-55916435313106ebd1723b5c2f487fa1.ctex"
+uid="uid://c0ahe1jfu6q8s"
+path="res://.godot/imported/We will big back this club.png-ba6d0fe110214f2eef609441db497612.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Elevator-Middle.png"
-dest_files=["res://.godot/imported/Elevator-Middle.png-55916435313106ebd1723b5c2f487fa1.ctex"]
+source_file="res://assets/endings/We will big back this club.png"
+dest_files=["res://.godot/imported/We will big back this club.png-ba6d0fe110214f2eef609441db497612.ctex"]
 
 [params]
 
