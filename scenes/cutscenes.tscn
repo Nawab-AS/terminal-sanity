@@ -1,70 +1,177 @@
 [gd_scene format=3 uid="uid://m1wxaakr8r3y"]
 
 [ext_resource type="Script" uid="uid://8jg520esce7r" path="res://scripts/cutscenes.gd" id="1_2o8o2"]
-[ext_resource type="Texture2D" uid="uid://jopfync10l75" path="res://assets/icon.svg" id="1_5khjm"]
+[ext_resource type="Texture2D" uid="uid://5nl1ydw5pvh8" path="res://assets/map/MainhallR17-R15.png" id="2_feyoj"]
+[ext_resource type="PackedScene" uid="uid://col2nywgespeg" path="res://scenes/arrow.tscn" id="3_dmv5i"]
+[ext_resource type="Texture2D" uid="uid://bfdaqb5flisd5" path="res://assets/map/HallwayR14-R15-R17.png" id="3_ght7f"]
+[ext_resource type="Texture2D" uid="uid://ct3uhivrt0v1j" path="res://assets/map/HallwayR17-R18-H2.png" id="4_dc4pn"]
+[ext_resource type="Texture2D" uid="uid://d0sie8ot1s3kp" path="res://assets/map/ForkH2-R13-R17.png" id="5_n6gad"]
+[ext_resource type="Texture2D" uid="uid://vq1pggq746dv" path="res://assets/map/HallwayR17-R6.png" id="5_pfeoa"]
+[ext_resource type="Texture2D" uid="uid://bja6wct55e1rr" path="res://assets/map/ForkR17-R6-R18.png" id="6_uy572"]
+[ext_resource type="Texture2D" uid="uid://duaxxais1akl8" path="res://assets/map/ForkW-WM-H2-R11-R12.png" id="9_t54nd"]
+[ext_resource type="Texture2D" uid="uid://ba53ts53hgpe" path="res://assets/map/BathroomR11.png" id="10_g3g22"]
+[ext_resource type="Texture2D" uid="uid://d3ydtdxbwc2fy" path="res://assets/map/AlleyR7-R8-R9-R10-R18-R19.png" id="10_uy572"]
+[ext_resource type="Texture2D" uid="uid://dlqk4m445v7un" path="res://assets/map/Mainhall-Middle.png" id="11_dmv5i"]
 
-[sub_resource type="Animation" id="Animation_2o8o2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(105, 590)]
-}
-
-[sub_resource type="Animation" id="Animation_5khjm"]
-resource_name = "test"
-length = 2.000001159539912
-step = 0.011111111
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.22349249, 0.42072204, 0.5568568, 0.7216027, 0.8750607, 1.0042537, 1.1360422, 1.2825792, 1.4008551, 1.5517383, 1.686843, 1.8057988, 1.9206347, 1.9968488),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(105, 590), Vector2(253, 466), Vector2(382, 606), Vector2(509, 558), Vector2(611, 624), Vector2(757, 527), Vector2(868, 602), Vector2(973, 523), Vector2(883, 440), Vector2(966, 361), Vector2(997, 288), Vector2(916, 177), Vector2(851, 101), Vector2(690, 192), Vector2(546, 88)]
-}
-
-[sub_resource type="Animation" id="Animation_465o6"]
-resource_name = "thing2"
-length = 2.000001159539912
-step = 0.011111111
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.22465722, 0.4390795, 0.5992565, 0.73986435, 0.8852007, 1.0083476, 1.1153029, 1.235318, 1.4179709, 1.5736241, 1.7138634, 1.8387299, 2.0000012),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(103, 601), Vector2(206, 474), Vector2(100, 387), Vector2(185, 275), Vector2(100, 209), Vector2(222, 100), Vector2(372, 203), Vector2(478, 95), Vector2(555, 196), Vector2(674, 98), Vector2(758, 193), Vector2(885, 102), Vector2(974, 200), Vector2(864, 297)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2o8o2"]
-_data = {
-&"RESET": SubResource("Animation_2o8o2"),
-&"test": SubResource("Animation_5khjm"),
-&"thing2": SubResource("Animation_465o6")
-}
-
-[node name="Cutscenes" type="Node2D" unique_id=1181241950]
+[node name="Venue" type="Node2D" unique_id=1181241950]
 script = ExtResource("1_2o8o2")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458608292]
-position = Vector2(105, 590)
-texture = ExtResource("1_5khjm")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1249722036]
+offset_left = -2830.0
+offset_top = -1298.0
+offset_right = 2176.0
+offset_bottom = 2717.0
+color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1677234346]
-libraries/ = SubResource("AnimationLibrary_2o8o2")
+[node name="map" type="Node2D" parent="." unique_id=2134799186]
+
+[node name="MainhallR17R15" type="Sprite2D" parent="map" unique_id=1521859874]
+position = Vector2(461, -472.824)
+texture = ExtResource("2_feyoj")
+
+[node name="Arrow" parent="map/MainhallR17R15" unique_id=1904409214 instance=ExtResource("3_dmv5i")]
+position = Vector2(-293.77, -6.386)
+rotation = 1.5707964
+direction = 2
+
+[node name="Arrow2" parent="map/MainhallR17R15" unique_id=1865380812 instance=ExtResource("3_dmv5i")]
+position = Vector2(281.11, 0.714)
+rotation = -1.5707964
+direction = 3
+
+[node name="HallwayR14R15R17" type="Sprite2D" parent="map" unique_id=1284584956]
+position = Vector2(-480, -480)
+texture = ExtResource("3_ght7f")
+
+[node name="Arrow3" parent="map/HallwayR14R15R17" unique_id=1534156157 instance=ExtResource("3_dmv5i")]
+position = Vector2(225.47, -6)
+rotation = -1.5707964
+direction = 3
+
+[node name="Arrow4" parent="map/HallwayR14R15R17" unique_id=280218716 instance=ExtResource("3_dmv5i")]
+position = Vector2(-230, 6)
+rotation = 1.5707964
+direction = 2
+
+[node name="HallwayR17R18H2" type="Sprite2D" parent="map" unique_id=1193054667]
+position = Vector2(-1337.9, 451.6)
+texture = ExtResource("4_dc4pn")
+
+[node name="Arrow7" parent="map/HallwayR17R18H2" unique_id=1527126735 instance=ExtResource("3_dmv5i")]
+position = Vector2(-100.099976, 212.39993)
+direction = 1
+
+[node name="Arrow8" parent="map/HallwayR17R18H2" unique_id=1923354531 instance=ExtResource("3_dmv5i")]
+position = Vector2(-100.099976, -217.6)
+rotation = 3.1415927
+
+[node name="ForkH2R13R17" type="Sprite2D" parent="map" unique_id=745090828]
+position = Vector2(-1341.26, -475.43)
+texture = ExtResource("5_n6gad")
+
+[node name="Arrow5" parent="map/ForkH2R13R17" unique_id=997520407 instance=ExtResource("3_dmv5i")]
+position = Vector2(-218.73999, -23.570007)
+rotation = 1.5707964
+direction = 2
+
+[node name="Arrow4" parent="map/ForkH2R13R17" unique_id=852896433 instance=ExtResource("3_dmv5i")]
+position = Vector2(205.26001, -56.570007)
+rotation = -1.5707964
+direction = 3
+
+[node name="Arrow6" parent="map/ForkH2R13R17" unique_id=1149779420 instance=ExtResource("3_dmv5i")]
+position = Vector2(-57.73999, 240.43)
+direction = 1
+
+[node name="ForkR17R6R18" type="Sprite2D" parent="map" unique_id=257760540]
+position = Vector2(-1369.44, 1347.8)
+texture = ExtResource("6_uy572")
+
+[node name="Arrow10" parent="map/ForkR17R6R18" unique_id=555203924 instance=ExtResource("3_dmv5i")]
+position = Vector2(-132.56006, -228.80005)
+rotation = -3.1415925
+
+[node name="Arrow8" parent="map/ForkR17R6R18" unique_id=1518697174 instance=ExtResource("3_dmv5i")]
+position = Vector2(-132.56006, 228.19995)
+direction = 1
+
+[node name="Arrow5" parent="map/ForkR17R6R18" unique_id=651608435 instance=ExtResource("3_dmv5i")]
+position = Vector2(180.43994, -31.800049)
+rotation = -1.5707964
+direction = 3
+
+[node name="HallwayR17R7" type="Sprite2D" parent="map" unique_id=936027339]
+position = Vector2(-456.79, 1347.19)
+texture = ExtResource("5_pfeoa")
+
+[node name="Arrow6" parent="map/HallwayR17R7" unique_id=1070222234 instance=ExtResource("3_dmv5i")]
+position = Vector2(188.79001, 10.810059)
+rotation = -1.5707964
+direction = 3
+
+[node name="Arrow7" parent="map/HallwayR17R7" unique_id=604913243 instance=ExtResource("3_dmv5i")]
+position = Vector2(-189.20999, 9.810059)
+rotation = 1.5707964
+direction = 2
+
+[node name="ForkWWmH2R11R12" type="Sprite2D" parent="map" unique_id=1567899825]
+position = Vector2(-2240.01, -480.48)
+texture = ExtResource("9_t54nd")
+
+[node name="Arrow5" parent="map/ForkWWmH2R11R12" unique_id=1414647004 instance=ExtResource("3_dmv5i")]
+position = Vector2(233.01001, -112.51999)
+rotation = -1.5707964
+direction = 3
+
+[node name="Arrow7" parent="map/ForkWWmH2R11R12" unique_id=1573304673 instance=ExtResource("3_dmv5i")]
+position = Vector2(-86.98999, 181.48001)
+direction = 1
+
+[node name="BathroomR11" type="Sprite2D" parent="map" unique_id=1797452118]
+position = Vector2(-2253.72, 447.07)
+rotation = -1.5707964
+texture = ExtResource("10_g3g22")
+
+[node name="Arrow9" parent="map/BathroomR11" unique_id=291487005 instance=ExtResource("3_dmv5i")]
+position = Vector2(224.07, -24.28003)
+rotation = -1.5707963
+
+[node name="AlleyR7R8R9R10R18R19" type="Sprite2D" parent="map" unique_id=384373430]
+position = Vector2(-1361.65, 2263.21)
+texture = ExtResource("10_uy572")
+
+[node name="Arrow11" parent="map/AlleyR7R8R9R10R18R19" unique_id=158245469 instance=ExtResource("3_dmv5i")]
+position = Vector2(275.65002, -128.20996)
+rotation = -3.1415925
+
+[node name="MainhallMiddle" type="Sprite2D" parent="map" unique_id=1327642671]
+position = Vector2(1353.52, -480)
+scale = Vector2(1.5641685, 1.5641685)
+texture = ExtResource("11_dmv5i")
+
+[node name="Arrow3" parent="map/MainhallMiddle" unique_id=1516278419 instance=ExtResource("3_dmv5i")]
+position = Vector2(-185.7345, 0.63931274)
+rotation = 1.5707964
+scale = Vector2(0.63931733, 0.63931733)
+direction = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1956931624]
+visible = false
+position = Vector2(450, -450)
+zoom = Vector2(0.8, 0.8)
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D" unique_id=126547779]
+offset_left = 466.0
+offset_top = -478.0
+offset_right = 827.0
+offset_bottom = 534.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Camera2D" unique_id=694552480]
+offset_left = -819.0
+offset_top = -478.0
+offset_right = -458.0
+offset_bottom = 534.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -1,13 +1,21 @@
 extends Control
 
 @onready var camera: Camera2D = $Camera
+@onready var cutscene_camera: Camera2D = $Cutscenes/Camera2D
 
 func _ready() -> void:
 	$Camera/ColorRect.hide();
+	cutscene_camera.enabled = false
+	camera.make_current()
 
 	GlobalSignals.move_camera.connect(func(y: int, delay: float, middle_callback: Callable):
 		await transition(Color.BLACK, 0.25, delay, func():
-			camera.position.y = y * 1000
+			if y == 9:
+				cutscene_camera.enabled = true
+				cutscene_camera.make_current()
+			else:
+				camera.make_current()
+				camera.position.y = y * 1000
 			if middle_callback.is_valid(): middle_callback.call()
 		)
 	)

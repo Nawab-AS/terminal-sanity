@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmbv07u7r24u8"
-path="res://.godot/imported/AlleyR7R8R9R10R18R19.png-0fdfecf8ff9353b13998e19afe110cd2.ctex"
+uid="uid://b3syoxsx4tw7"
+path="res://.godot/imported/Elevator-left.png-7b2d8eb6e733a10176b4e9363c7c1eb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/AlleyR7R8R9R10R18R19.png"
-dest_files=["res://.godot/imported/AlleyR7R8R9R10R18R19.png-0fdfecf8ff9353b13998e19afe110cd2.ctex"]
+source_file="res://Elevator-left.png"
+dest_files=["res://.godot/imported/Elevator-left.png-7b2d8eb6e733a10176b4e9363c7c1eb9.ctex"]
 
 [params]
 

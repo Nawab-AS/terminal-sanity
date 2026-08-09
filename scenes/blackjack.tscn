@@ -22,7 +22,7 @@ offset = Vector2(0, -2400)
 
 [node name="Hit" type="AnimatedSprite2D" parent="." unique_id=2093521832]
 texture_filter = 1
-position = Vector2(954, 332)
+position = Vector2(1200, 360)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_3frkl")
 frame = 52
@@ -52,7 +52,7 @@ vertical_alignment = 1
 
 [node name="Stand" type="AnimatedSprite2D" parent="." unique_id=987654321]
 texture_filter = 1
-position = Vector2(150, 332)
+position = Vector2(-100, 360)
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_3frkl")
 frame = 53
@@ -95,6 +95,7 @@ scale = Vector2(0.9999999, 0.9999999)
 position = Vector2(125, 0)
 
 [node name="player_total" type="Label" parent="." unique_id=1360987706]
+visible = false
 offset_left = 459.0
 offset_top = 485.0
 offset_right = 622.0
@@ -128,6 +129,49 @@ theme_override_font_sizes/font_size = 150
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="wager" type="Control" parent="." unique_id=1097726861]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1080.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="wager" unique_id=1268110262]
+layout_mode = 0
+offset_top = 265.0
+offset_right = 1080.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 32
+text = "Wager: <stuff>"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="more" type="Button" parent="wager" unique_id=32049810]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 337.0
+offset_right = 531.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 32
+text = "+1"
+
+[node name="less" type="Button" parent="wager" unique_id=465901687]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 337.0
+offset_right = 711.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 32
+text = "-1"
+
+[node name="start" type="Button" parent="wager" unique_id=1214726659]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 426.0
+offset_right = 704.0
+offset_bottom = 501.0
+theme_override_font_sizes/font_size = 32
+text = "Start!"
 
 [connection signal="deal_card" from="Hit" to="." method="_hit"]
 [connection signal="input_event" from="Hit/Area2D" to="Hit" method="_on_input_event"]
