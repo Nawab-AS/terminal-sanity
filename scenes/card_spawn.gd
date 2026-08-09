@@ -17,7 +17,7 @@ func _on_mouse_entered():
 	hover_tween.tween_property($".", "scale", Vector2(2.75, 2.75), hoverTime)
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 		if name == "Hit":
 			emit_signal("deal_card")

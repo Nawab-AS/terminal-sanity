@@ -17,21 +17,75 @@ func set_dealer_total(value: int) -> void:
 	dealer_total = value
 	$dealer_total.text = "Points: %d" % dealer_total
 
-func _ready():
+# func _ready():
+# 	reset(true)
+
+func reset(deal: bool) -> void:
+	dealable = false
+	set_player_total(0)
+	set_dealer_total(0)
+	$dealer_total.visible = false
 	$ending.hide()
+	if deal:
+		$player_total.show()
+	else:
+		$player_total.hide()
+
+	# Stop any pending round sequence.
+	if is_instance_valid(tween):
+		tween.kill()
+
+	# Move any existing cards back to the deck and ensure they're face-down.
+	var deck_pos = $Hit.global_position
+	var tweens_to_finish: Array[Tween] = []
+
+	var player_marker: Node = $player_hand/new_card_pos
+	for child in $player_hand.get_children():
+		if child == player_marker:
+			continue
+		if child is Node2D and child.has_method("updateCardImage"):
+			# `flipped = true` means face-down (card back frame).
+			child.flipped = true
+			child.updateCardImage()
+			var move_tween := child.create_tween()
+			move_tween.tween_property(child, "global_position", deck_pos, 0.25)
+			move_tween.tween_callback(func():
+				child.queue_free()
+			)
+			tweens_to_finish.append(move_tween)
+
+	var dealer_marker: Node = $dealer_hand/new_card_pos
+	for child in $dealer_hand.get_children():
+		if child == dealer_marker:
+			continue
+		if child is Node2D and child.has_method("updateCardImage"):
+			child.flipped = true
+			child.updateCardImage()
+			var move_tween := child.create_tween()
+			move_tween.tween_property(child, "global_position", deck_pos, 0.25)
+			move_tween.tween_callback(func():
+				child.queue_free()
+			)
+			tweens_to_finish.append(move_tween)
+
+	for t in tweens_to_finish:
+		await t.finished
+
+	if !deal: return
+
+	# initial dealing animation
 	tween = create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_callback(func():
 		deal_card(true, false)
 	)
 	tween.tween_interval(0.5)
-
 	tween.tween_callback(func():
 		deal_card(false, true)
 		dealable = true
 	)
 
-func _deal_card_signal():
+func _hit():
 	if !dealable: return
 	deal_card(false, true)
 	if player_total == 21:
@@ -43,6 +97,8 @@ func _deal_card_signal():
 
 
 func _stand():
+	if !dealable:
+		return
 	dealable = false
 
 	# Flip dealer cards and reveal score.
@@ -109,11 +165,12 @@ func ending(text: String, winner: Winner):
 			$ending.set("theme_override_colors/font_color", Color("#FD151B"))
 		Winner.DRAW:
 			$ending.set("theme_override_colors/font_color", Color("F5FBEF"))
-	
-	
+
+
 	var ending_tween := bigText(text)
 	ending_tween.tween_callback(func():
 		emit_signal("ended", winner)
+		reset(false)
 	)
 
 func bigText(text: String) -> Tween:

@@ -48,9 +48,9 @@ func updateCardImage():
 	if flipped:
 		$hoverScale/image.frame = 52
 	else:
-		$hoverScale/image.frame = getCard(suite, value)
+		$hoverScale/image.frame = getCard()
 
-func getCard(suite: Suites, value: Values) -> int:
+func getCard() -> int:
 	var suiteInt: int = 0
 	match suite:
 		Suites.HEARTS:

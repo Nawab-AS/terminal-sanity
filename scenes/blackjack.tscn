@@ -129,11 +129,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="deal_card" from="Hit" to="." method="_deal_card_signal"]
+[connection signal="deal_card" from="Hit" to="." method="_hit"]
 [connection signal="input_event" from="Hit/Area2D" to="Hit" method="_on_input_event"]
 [connection signal="mouse_entered" from="Hit/Area2D" to="Hit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Hit/Area2D" to="Hit" method="_on_mouse_exited"]
-[connection signal="deal_card" from="Stand" to="." method="_stand_signal"]
 [connection signal="stand" from="Stand" to="." method="_stand"]
 [connection signal="input_event" from="Stand/Area2D" to="Stand" method="_on_input_event"]
 [connection signal="mouse_entered" from="Stand/Area2D" to="Stand" method="_on_mouse_entered"]

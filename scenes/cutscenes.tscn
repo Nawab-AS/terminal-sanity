@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://m1wxaakr8r3y"]
+
+[ext_resource type="Script" uid="uid://8jg520esce7r" path="res://scripts/cutscenes.gd" id="1_2o8o2"]
+[ext_resource type="Texture2D" uid="uid://jopfync10l75" path="res://assets/icon.svg" id="1_5khjm"]
+
+[sub_resource type="Animation" id="Animation_2o8o2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(105, 590)]
+}
+
+[sub_resource type="Animation" id="Animation_5khjm"]
+resource_name = "test"
+length = 2.000001159539912
+step = 0.011111111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22349249, 0.42072204, 0.5568568, 0.7216027, 0.8750607, 1.0042537, 1.1360422, 1.2825792, 1.4008551, 1.5517383, 1.686843, 1.8057988, 1.9206347, 1.9968488),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(105, 590), Vector2(253, 466), Vector2(382, 606), Vector2(509, 558), Vector2(611, 624), Vector2(757, 527), Vector2(868, 602), Vector2(973, 523), Vector2(883, 440), Vector2(966, 361), Vector2(997, 288), Vector2(916, 177), Vector2(851, 101), Vector2(690, 192), Vector2(546, 88)]
+}
+
+[sub_resource type="Animation" id="Animation_465o6"]
+resource_name = "thing2"
+length = 2.000001159539912
+step = 0.011111111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22465722, 0.4390795, 0.5992565, 0.73986435, 0.8852007, 1.0083476, 1.1153029, 1.235318, 1.4179709, 1.5736241, 1.7138634, 1.8387299, 2.0000012),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(103, 601), Vector2(206, 474), Vector2(100, 387), Vector2(185, 275), Vector2(100, 209), Vector2(222, 100), Vector2(372, 203), Vector2(478, 95), Vector2(555, 196), Vector2(674, 98), Vector2(758, 193), Vector2(885, 102), Vector2(974, 200), Vector2(864, 297)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2o8o2"]
+_data = {
+&"RESET": SubResource("Animation_2o8o2"),
+&"test": SubResource("Animation_5khjm"),
+&"thing2": SubResource("Animation_465o6")
+}
+
+[node name="Cutscenes" type="Node2D" unique_id=1181241950]
+script = ExtResource("1_2o8o2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458608292]
+position = Vector2(105, 590)
+texture = ExtResource("1_5khjm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1677234346]
+libraries/ = SubResource("AnimationLibrary_2o8o2")

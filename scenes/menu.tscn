@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://t2nloxi5ovgb"]
+
+[ext_resource type="Script" uid="uid://gkuoa5ievlih" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://jopfync10l75" path="res://assets/icon.svg" id="2_vjb58"]
+[ext_resource type="PackedScene" uid="uid://0536wkmjuomo" path="res://scenes/blackjack.tscn" id="3_con2f"]
+[ext_resource type="PackedScene" uid="uid://8hfpcfg54hic" path="res://scenes/who_are_you.tscn" id="4_mhnvy"]
+[ext_resource type="PackedScene" uid="uid://m1wxaakr8r3y" path="res://scenes/cutscenes.tscn" id="5_4ytvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.40784314, 0.6156863, 0.77254903, 1)
+
+[node name="Main" type="Control" unique_id=1004635582]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqeox")
+
+[node name="title" type="Label" parent="." unique_id=594590093]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 142.0
+offset_right = 564.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 60
+text = "Terminal Sanity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start_button" type="Button" parent="." unique_id=1942220496]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 386.0
+offset_right = 431.0
+offset_bottom = 461.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_vjb58")
+text = "Play"
+
+[node name="bg_image" type="Sprite2D" parent="." unique_id=982056717]
+position = Vector2(880, 387.00003)
+scale = Vector2(3.8398438, 5.578125)
+texture = ExtResource("2_vjb58")
+
+[node name="Blackjack" parent="." unique_id=141057692 instance=ExtResource("3_con2f")]
+position = Vector2(0, 2000)
+
+[node name="Who_are_you" parent="." unique_id=1050420595 instance=ExtResource("4_mhnvy")]
+layout_mode = 1
+offset_top = 1000.0
+offset_bottom = 1000.0
+
+[node name="Cutscenes" parent="." unique_id=1181241950 instance=ExtResource("5_4ytvr")]
+position = Vector2(0, -1000)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1307910871]
+offset = Vector2(540, 360)
+
+[node name="ColorRect" type="ColorRect" parent="Camera" unique_id=511932826]
+visible = false
+offset_right = 1080.0
+offset_bottom = 720.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="start_button" to="." method="_on_start_pressed"]

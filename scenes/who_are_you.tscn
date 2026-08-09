@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://8hfpcfg54hic"]
+
+[ext_resource type="Script" uid="uid://wjnort0x0au4" path="res://scripts/who_are_you.gd" id="1_40fp6"]
+
+[node name="Who_are_you" type="Control" unique_id=1050420595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40fp6")
+
+[node name="attribute" type="Control" parent="." unique_id=1502698406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="question" type="Label" parent="attribute" unique_id=981470840]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = 213.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "What exaggerated attribute would best describe you?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="lazy" type="Button" parent="attribute" unique_id=1644395724 groups=["questions"]]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 382.0
+offset_right = 387.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 32
+text = "Lazy"
+
+[node name="procrastinating" type="Button" parent="attribute" unique_id=1092912803 groups=["questions"]]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 382.0
+offset_right = 666.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 30
+text = "Procrastinating"
+
+[node name="big_back" type="Button" parent="attribute" unique_id=767186653 groups=["questions"]]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 382.0
+offset_right = 950.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 32
+text = "Big Back"
+
+[node name="software_hardware" type="Control" parent="." unique_id=548487799]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="question" type="Label" parent="software_hardware" unique_id=1982591284]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = 213.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Do you mainly do software or hardware?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="software" type="Button" parent="software_hardware" unique_id=465510796 groups=["questions"]]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 347.0
+offset_right = 387.0
+offset_bottom = 447.0
+scale = Vector2(1.5199988, 1.5344918)
+theme_override_font_sizes/font_size = 32
+text = "Software"
+
+[node name="hardware" type="Button" parent="software_hardware" unique_id=710114482 groups=["questions"]]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 347.0
+offset_right = 801.0
+offset_bottom = 447.0
+scale = Vector2(1.5199988, 1.5344918)
+theme_override_font_sizes/font_size = 30
+text = "Hardware"
+
+[node name="transport" type="Control" parent="." unique_id=983038235]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="question" type="Label" parent="transport" unique_id=871823978]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = -40.0
+offset_bottom = 213.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "How did you get to Polaris?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="car" type="Button" parent="transport" unique_id=728939182 groups=["questions"]]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 382.0
+offset_right = 387.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 32
+text = "Car"
+
+[node name="bus" type="Button" parent="transport" unique_id=1988524605 groups=["questions"]]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 382.0
+offset_right = 666.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 30
+text = "Train/Bus"
+
+[node name="plane" type="Button" parent="transport" unique_id=131242063 groups=["questions"]]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 382.0
+offset_right = 950.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 32
+text = "Plane"

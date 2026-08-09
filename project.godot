@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="terminal-sanity"
-run/main_scene="uid://0536wkmjuomo"
+run/main_scene="uid://t2nloxi5ovgb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
+
+[autoload]
+
+GlobalSignals="*uid://b5hm8g476w8lr"
 
 [display]
 
@@ -49,3 +53,4 @@ Stand={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.19607843, 0.24313726, 0.3254902, 1)
